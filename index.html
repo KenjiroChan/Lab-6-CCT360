@@ -3,29 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 6</title>
+  <title>Weather Right Now</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>Lab 6 Weather</h1>
-    <p class="subtitle">Live data from the Open-Meteo API. Pick a city.</p>
+  <h1>Weather Right Now</h1>
 
-    <div class="buttons">
-      <button data-lat="43.65" data-lon="-79.38" data-name="Toronto">Toronto</button>
-      <button data-lat="35.68" data-lon="139.69" data-name="Tokyo">Tokyo</button>
-      <button data-lat="48.85" data-lon="2.35" data-name="Paris">Paris</button>
-      <button data-lat="-33.87" data-lon="151.21" data-name="Sydney">Sydney</button>
-      <button data-lat="25.20" data-lon="55.27" data-name="Dubai">Dubai</button>
-    </div>
+  <button data-lat="43.65" data-lon="-79.38" data-name="Toronto">Toronto</button>
+  <button data-lat="35.68" data-lon="139.69" data-name="Tokyo">Tokyo</button>
+  <button data-lat="48.85" data-lon="2.35" data-name="Paris">Paris</button>
+  <button data-lat="-33.87" data-lon="151.21" data-name="Sydney">Sydney</button>
+  <button data-lat="25.20" data-lon="55.27" data-name="Dubai">Dubai</button>
 
-    <section id="card">
-      <h2 id="city">Loading...</h2>
-      <p id="temp"></p>
-      <p id="details"></p>
-      <p id="updated"></p>
-    </section>
-  </main>
+  <h2 id="city">Loading...</h2>
+  <p id="temp"></p>
+  <p id="details"></p>
 
   <script src="script.js"></script>
 </body>
