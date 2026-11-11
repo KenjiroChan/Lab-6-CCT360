@@ -14,9 +14,9 @@ function describeWeather(code) {
 }
 
 function colourForTemp(temp) {
-  if (temp < 10) return "lightblue";  
+  if (temp < 10) return "lightblue"; 
   if (temp < 25) return "lightgreen"; 
-  return "orange";                 
+  return "orange";                   
 }
 
 async function getWeather(lat, lon, name) {
