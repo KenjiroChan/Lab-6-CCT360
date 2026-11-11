@@ -1,7 +1,6 @@
 const cityEl = document.getElementById("city");
 const tempEl = document.getElementById("temp");
 const detailsEl = document.getElementById("details");
-const updatedEl = document.getElementById("updated");
 const buttons = document.querySelectorAll("button");
 
 function describeWeather(code) {
@@ -15,11 +14,9 @@ function describeWeather(code) {
 }
 
 function colourForTemp(temp) {
-  if (temp < 0) return "#7fb3ff";   
-  if (temp < 10) return "#a8d8ea";  
-  if (temp < 20) return "#b8e0a8"; 
-  if (temp < 30) return "#ffd27f";  
-  return "#ff8a65";                 
+  if (temp < 10) return "lightblue";  
+  if (temp < 25) return "lightgreen"; 
+  return "orange";                 
 }
 
 async function getWeather(lat, lon, name) {
@@ -27,28 +24,18 @@ async function getWeather(lat, lon, name) {
 
   const url =
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
-    `&current=temperature_2m,weather_code,wind_speed_10m,is_day`;
+    `&current=temperature_2m,weather_code`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
     const now = data.current;
 
-    const label = describeWeather(now.weather_code);
-
     cityEl.textContent = name;
     tempEl.textContent = `${Math.round(now.temperature_2m)}°C`;
-    detailsEl.textContent = `${label} · Wind ${now.wind_speed_10m} km/h`;
-    updatedEl.textContent = `Local time of reading: ${now.time.replace("T", " ")}`;
+    detailsEl.textContent = describeWeather(now.weather_code);
 
-    const colour = colourForTemp(now.temperature_2m);
-    if (now.is_day === 1) {
-      document.body.classList.remove("night");
-      document.body.style.background = colour;
-    } else {
-      document.body.classList.add("night");
-      document.body.style.background = `linear-gradient(#1b1f3a, ${colour})`;
-    }
+    document.body.style.backgroundColor = colourForTemp(now.temperature_2m);
   } catch (error) {
     cityEl.textContent = "Couldn't load the weather.";
     console.error(error);
