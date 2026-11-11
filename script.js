@@ -64,5 +64,4 @@ buttons.forEach((button) => {
   });
 });
 
-// Load Toronto when the page opens
 getWeather(43.65, -79.38, "Toronto");
