@@ -10,7 +10,6 @@ body {
   transition: background 0.8s ease;
 }
 
-/* Night mode is switched on by JavaScript when the API says it's dark */
 body.night {
   color: #f2f2f2;
 }
